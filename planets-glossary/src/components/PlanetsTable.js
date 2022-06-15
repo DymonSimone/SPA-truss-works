@@ -19,7 +19,6 @@ componentDidMount(){
                      else return res.json();
                    })
                    .then((json) => {
-                         console.log(json)
                          this.setState({rows: json.results})
                          for(let i = 0; i < this.state.rows.length; i++){
                             populateData(this.state,i)
@@ -72,7 +71,7 @@ function populateData(state, index){
     var climate = state.rows[index].climate
     var residents = state.rows[index].residents.length
     var terrain = state.rows[index].terrain
-    var surfaceArea = state.rows[index].surface_water
+    var surfaceArea = calaculateSurfaceArea(state.rows[index].diameter,state.rows[index].surface_water )
    
     if(state.rows[index].population == "unknown"){
       population = "?"
@@ -81,4 +80,16 @@ function populateData(state, index){
     }
      rows.push({planetName, climate , residents, terrain, population, surfaceArea });
   }
+function calaculateSurfaceArea(diameter, surface_water){
+    var radius = Math.abs(diameter / 2)
+    var result
+
+    if(surface_water == "unknown"){
+        result = "?"
+    }else{
+        var decimal = parseInt(surface_water) / 100
+        result = Math.round(4 * Math.PI * Math.pow(radius, 2) * decimal)
+    }
+return result
+}
 export default PlanetsTable
