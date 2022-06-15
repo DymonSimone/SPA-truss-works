@@ -22,11 +22,8 @@ componentDidMount(){
                          console.log(json)
                          this.setState({rows: json.results})
                          for(let i = 0; i < this.state.rows.length; i++){
-                            console.log(this.state.rows[i])
-                            //console.log(createData(this.state.planetName, this.state.climate, this.state.terrain, this.state.resisdents, this.state.population, this.state.surfaceArea))
-                            rows.push( createData(this.state.rows[i].name, this.state.rows[i].climate, this.state.rows[i].terrain, this.state.rows[i].residents.length, this.state.rows[i].population, this.state.rows[i].surface_water))
+                            populateData(this.state,i)
                          }
-                         console.log(rows)
                    });
         
 }
@@ -55,7 +52,7 @@ return (
               </TableCell>
               <TableCell>{row.climate}</TableCell>
               <TableCell>{row.terrain}</TableCell>
-              <TableCell>{row.resisdents}</TableCell>
+              <TableCell>{row.residents}</TableCell>
               <TableCell>{row.population}</TableCell>
               <TableCell> {row.surfaceArea}</TableCell>
             </TableRow>
@@ -69,16 +66,19 @@ return (
 }
 }
 
-function createData(
-    planetName,
-    climate,
-    terrain,
-    resisdents,
-    population,
-    surfaceArea
-  ) {
-    return { planetName, climate, terrain, resisdents, population, surfaceArea };
+function populateData(state, index){
+    var population;
+    var planetName = state.rows[index].name
+    var climate = state.rows[index].climate
+    var residents = state.rows[index].residents.length
+    var terrain = state.rows[index].terrain
+    var surfaceArea = state.rows[index].surface_water
+   
+    if(state.rows[index].population == "unknown"){
+      population = "?"
+    }else{
+      population = state.rows[index].population
+    }
+     rows.push({planetName, climate , residents, terrain, population, surfaceArea });
   }
-  
- 
 export default PlanetsTable
