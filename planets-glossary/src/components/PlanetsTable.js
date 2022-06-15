@@ -92,7 +92,7 @@ function populateData(state, index){
     var terrain = state.rows[index].terrain
     var surfaceArea = formatNumber(calaculateSurfaceArea(state.rows[index].diameter,state.rows[index].surface_water ))
    
-    if(state.rows[index].population == "unknown"){
+    if(state.rows[index].population === "unknown"){
       population = "?"
     }else{
       population = formatNumber(state.rows[index].population)
