@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {TableContainer, TableHead, TableCell, TableBody, TableRow, Table, CircularProgress} from '@mui/material';
 
+var url = "https://swapi.dev/api/planets/"
 const rows = []
 var loading = true
 class PlanetsTable extends React.Component{
@@ -13,8 +14,7 @@ constructor(props){
 }
 
 componentDidMount(){
-    fetch(
-        "https://swapi.dev/api/planets/n")
+    fetch(url)
                    .then((res) => {
                      if(!res.ok) throw new Error(res.status);
                      else return res.json();
