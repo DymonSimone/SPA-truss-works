@@ -22,6 +22,16 @@ componentDidMount(){
                          this.setState({rows: json.results})
                          for(let i = 0; i < this.state.rows.length; i++){
                             populateData(this.state,i)
+                            rows.sort((a,b) =>{
+                                if(a.planetName < b.planetName){
+                                    return -1;
+                                }
+
+                                if(a.planetName > b.planetName){
+                                    return 1;
+                                }
+                                return 0;
+                            });
                          }
                    });
         
@@ -71,7 +81,7 @@ function populateData(state, index){
     var climate = state.rows[index].climate
     var residents = state.rows[index].residents.length
     var terrain = state.rows[index].terrain
-    var surfaceArea = calaculateSurfaceArea(state.rows[index].diameter,state.rows[index].surface_water )
+    var surfaceArea = formatNumber(calaculateSurfaceArea(state.rows[index].diameter,state.rows[index].surface_water ))
    
     if(state.rows[index].population == "unknown"){
       population = "?"
