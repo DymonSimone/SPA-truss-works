@@ -49,17 +49,17 @@ if(loading){
 }
 return (
 <div>
-<h1> Planets Glossary</h1>
+<h1> Planet Glossary</h1>
 <TableContainer sx={{p:4}}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Planet Name</TableCell>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Climate</TableCell>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Terrain</TableCell>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}># of Residents</TableCell>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}>Population</TableCell>
-            <TableCell sx={{border: 1, borderColor: 'grey.500'}}>Surface Area Covered By Water (km2)</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}> Planet Name</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}> Climate</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}> Terrain</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}># of Residents</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}>Population</TableCell>
+            <TableCell sx={{border: 1, fontWeight:'bold', borderColor: 'grey.500'}}>Surface Area Covered By Water (km2)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
