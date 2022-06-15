@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {TableContainer, TableHead, TableCell, TableBody, TableRow, Table, Paper} from '@mui/material';
+import {TableContainer, TableHead, TableCell, TableBody, TableRow, Table, CircularProgress} from '@mui/material';
 
 const rows = []
+var loading = true
 class PlanetsTable extends React.Component{
 constructor(props){
         super(props);
@@ -13,7 +14,7 @@ constructor(props){
 
 componentDidMount(){
     fetch(
-        "https://swapi.dev/api/planets/")
+        "https://swapi.dev/api/planets/n")
                    .then((res) => {
                      if(!res.ok) throw new Error(res.status);
                      else return res.json();
@@ -32,12 +33,20 @@ componentDidMount(){
                                 }
                                 return 0;
                             });
-                         }
-                   });
-        
+                   loading = false
+                    }}).catch((error) => {
+                    this.setState({error: error})              
+              });
 }
 
 render(){
+if(this.state.error){
+    return  <h1> 404 Not Found </h1>
+}
+
+if(loading){
+    return <CircularProgress />
+}
 return (
 <div>
 <h1> Planets Glossary</h1>
