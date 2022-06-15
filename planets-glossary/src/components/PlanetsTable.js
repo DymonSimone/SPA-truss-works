@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {TableContainer, TableHead, TableCell, TableBody, TableRow, Table, Paper} from '@mui/material';
 
+const rows = []
 class PlanetsTable extends React.Component{
 constructor(props){
         super(props);
@@ -8,6 +9,26 @@ constructor(props){
             rows:[],
             error:''
         });
+}
+
+componentDidMount(){
+    fetch(
+        "https://swapi.dev/api/planets/")
+                   .then((res) => {
+                     if(!res.ok) throw new Error(res.status);
+                     else return res.json();
+                   })
+                   .then((json) => {
+                         console.log(json)
+                         this.setState({rows: json.results})
+                         for(let i = 0; i < this.state.rows.length; i++){
+                            console.log(this.state.rows[i])
+                            //console.log(createData(this.state.planetName, this.state.climate, this.state.terrain, this.state.resisdents, this.state.population, this.state.surfaceArea))
+                            rows.push( createData(this.state.rows[i].name, this.state.rows[i].climate, this.state.rows[i].terrain, this.state.rows[i].residents.length, this.state.rows[i].population, this.state.rows[i].surface_water))
+                         }
+                         console.log(rows)
+                   });
+        
 }
 
 render(){
@@ -59,12 +80,5 @@ function createData(
     return { planetName, climate, terrain, resisdents, population, surfaceArea };
   }
   
-  const rows = [
-    createData('A', 'cold', 6.0, 24, 4.0,5),
-    createData('B', 'hot', 9.0, 37, 4.3,12),
-    createData('C', 'humid', 16.0, 24, 6.0,4),
-    createData('D', 'mild', 3.7, 67, 4.3,5),
-    createData('E', 'cold', 16.0, 49, 3.9,7),
-  ];
-
+ 
 export default PlanetsTable
