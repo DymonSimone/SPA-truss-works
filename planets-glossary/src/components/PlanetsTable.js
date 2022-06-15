@@ -103,7 +103,7 @@ function calaculateSurfaceArea(diameter, surface_water){
     var radius = Math.abs(diameter / 2)
     var result
 
-    if(surface_water == "unknown"){
+    if(surface_water === "unknown"){
         result = "?"
     }else{
         var decimal = parseInt(surface_water) / 100
