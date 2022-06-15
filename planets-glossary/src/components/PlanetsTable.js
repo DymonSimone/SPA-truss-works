@@ -54,25 +54,25 @@ return (
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell sx={{border: 1}}> Planet Name</TableCell>
-            <TableCell sx={{border: 1}}> Climate</TableCell>
-            <TableCell sx={{border: 1}}> Terrain</TableCell>
-            <TableCell sx={{border: 1}}># of Residents</TableCell>
-            <TableCell sx={{border: 1}}>Population</TableCell>
-            <TableCell sx={{border: 1}}>Surface Area Covered By Water (km2)</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Planet Name</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Climate</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}> Terrain</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}># of Residents</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}>Population</TableCell>
+            <TableCell sx={{border: 1, borderColor: 'grey.500'}}>Surface Area Covered By Water (km2)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow sx={{border: 1}}>
-              <TableCell sx={{border: 1}}>
+            <TableRow sx={{border: 1, borderColor: 'grey.500'}}>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}>
                 {row.planetName}
               </TableCell>
-              <TableCell sx={{border: 1}}>{row.climate}</TableCell>
-              <TableCell sx={{border: 1}}>{row.terrain}</TableCell>
-              <TableCell sx={{border: 1}}>{row.residents}</TableCell>
-              <TableCell sx={{border: 1}}>{row.population}</TableCell>
-              <TableCell sx={{border: 1}}> {row.surfaceArea}</TableCell>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}>{row.climate}</TableCell>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}>{row.terrain}</TableCell>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}>{row.residents}</TableCell>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}>{row.population}</TableCell>
+              <TableCell sx={{border: 1, borderColor: 'grey.500'}}> {row.surfaceArea}</TableCell>
             </TableRow>
           ))}
         </TableBody>
