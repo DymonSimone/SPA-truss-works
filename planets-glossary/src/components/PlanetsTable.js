@@ -50,29 +50,29 @@ if(loading){
 return (
 <div>
 <h1> Planets Glossary</h1>
-<TableContainer>
+<TableContainer sx={{p:4}}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell> Planet Name</TableCell>
-            <TableCell> Climate</TableCell>
-            <TableCell> Terrain</TableCell>
-            <TableCell># of Residents</TableCell>
-            <TableCell>Population</TableCell>
-            <TableCell>Surface Area Covered By Water (km2)</TableCell>
+            <TableCell sx={{border: 1}}> Planet Name</TableCell>
+            <TableCell sx={{border: 1}}> Climate</TableCell>
+            <TableCell sx={{border: 1}}> Terrain</TableCell>
+            <TableCell sx={{border: 1}}># of Residents</TableCell>
+            <TableCell sx={{border: 1}}>Population</TableCell>
+            <TableCell sx={{border: 1}}>Surface Area Covered By Water (km2)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow>
-              <TableCell>
+            <TableRow sx={{border: 1}}>
+              <TableCell sx={{border: 1}}>
                 {row.planetName}
               </TableCell>
-              <TableCell>{row.climate}</TableCell>
-              <TableCell>{row.terrain}</TableCell>
-              <TableCell>{row.residents}</TableCell>
-              <TableCell>{row.population}</TableCell>
-              <TableCell> {row.surfaceArea}</TableCell>
+              <TableCell sx={{border: 1}}>{row.climate}</TableCell>
+              <TableCell sx={{border: 1}}>{row.terrain}</TableCell>
+              <TableCell sx={{border: 1}}>{row.residents}</TableCell>
+              <TableCell sx={{border: 1}}>{row.population}</TableCell>
+              <TableCell sx={{border: 1}}> {row.surfaceArea}</TableCell>
             </TableRow>
           ))}
         </TableBody>
