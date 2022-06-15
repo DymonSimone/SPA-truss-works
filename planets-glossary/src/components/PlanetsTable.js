@@ -76,7 +76,7 @@ function populateData(state, index){
     if(state.rows[index].population == "unknown"){
       population = "?"
     }else{
-      population = state.rows[index].population
+      population = formatNumber(state.rows[index].population)
     }
      rows.push({planetName, climate , residents, terrain, population, surfaceArea });
   }
@@ -92,4 +92,9 @@ function calaculateSurfaceArea(diameter, surface_water){
     }
 return result
 }
+//Source: https://stackoverflow.com/questions/16637051/adding-space-between-numbers
+function formatNumber(input){
+    return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+ }
+ 
 export default PlanetsTable
